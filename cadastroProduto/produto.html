@@ -22,10 +22,10 @@
             <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="#">Locais</a>
           </li>
           <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="./cadastroProduto/produto.html">Produtos</a>
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="#">Produtos</a>
           </li>
           <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="#">Serviços</a>
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroServicos/servicos.html">Serviços</a>
           </li>
         </ul>
         <ul class="nav flex-column flex-md-row">
@@ -45,19 +45,19 @@
   </header>
 
   <section id="Servicos" class="container-fluid">
-    <p id="corT2" class="ms-5 mt-3 text-start fs-1 fw-bold">Nossos serviços</p>
+    <p id="corT2" class="ms-5 mt-3 text-start fs-1 fw-bold">Nossos produtos</p>
     <div class="container mt-5" style="margin-top: 19px !important;">
-      <div class="service-cont row row-cols-1 row-cols-md-4 g-4" style="    gap: 10px;
-
-      justify-content: left;
-      ">
-
-      </div>
+        <div class="product-cont row row-cols-1 row-cols-md-4 g-4" style="  
+        display: flex;
+        justify-content: center;
+        align-items: center;">
+        
+        </div>
     </div>
   </section>
 
-    <script src="servicos.js"></script>
-    <script src="cadastroS.js"></script>
+    <script src="./produtos.js"></script>
+    <script src="./cadastro.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
