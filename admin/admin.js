@@ -1,54 +1,163 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Carrega e exibe produtos
-    loadAndDisplayItems('produtos');
+// Carrega e exibe produtos
+async function loadAndDisplayProducts() {
+    try {
+        const response = await fetch('http://localhost:3000/produtos', {
+            method: 'GET',
+        });
 
-    // Carrega e exibe serviços
-    loadAndDisplayItems('servicos');
-});
+        if (!response.ok) throw new Error('Erro ao buscar produtos');
 
-function loadAndDisplayItems(itemType) {
-    var items = JSON.parse(localStorage.getItem(itemType)) || [];
-    var container = itemType === 'produtos'? document.getElementById('lista-produtos') : document.getElementById('lista-servicos');
+        const products = await response.json();
+        const container = document.getElementById('lista-produtos');
 
-    items.forEach(function(item, index) {
-        var itemElement = document.createElement('div');
-        itemElement.innerHTML = `
-            <h3>${item.nome}</h3>
-            <p>Descrição: ${item.nome}</p>
-            <button onclick="editItem('${itemType}', ${index})">Editar</button>
-            <button onclick="deleteItem('${itemType}', ${index})">Deletar</button>
-        `;
-        container.appendChild(itemElement);
-    });
-}
-
-function editItem(itemType, index) {
-    var items = JSON.parse(localStorage.getItem(itemType));
-    var newName = prompt("Digite o novo nome:");
-    var newImageURL = prompt("Digite a nova URL da imagem:");
-
-    if (newName && newImageURL) {
-        items[index].nome = newName;
-        items[index].imagem = newImageURL;
-        localStorage.setItem(itemType, JSON.stringify(items)); // Atualiza o localStorage
-        alert(`${items[index].nome} foi editado com sucesso.`);
-        loadAndDisplayItems(itemType); // Recarrega a lista após a edição
-        location.reload();
-    } else {
-        alert("Por favor, insira ambos os campos.");
+        products.forEach((product, index) => {
+            const productElement = document.createElement('div');
+            productElement.innerHTML = `
+                <h3>${product.nome}</h3>
+                <img src="${product.imagem}" alt="${product.nome}">
+                <button onclick="editProduct(${index}, '${product.id}')">Editar</button>
+                <button onclick="deleteProduct(${index}, '${product.id}')">Deletar</button>
+            `;
+            container.appendChild(productElement);
+        });
+    } catch (error) {
+        console.error('Erro:', error);
     }
 }
 
-function deleteItem(itemType, index) {
-    // Implemente a lógica para deletar um item
-    console.log(`Deletando item tipo ${itemType} na posição ${index}`);
+// Carrega e exibe serviços
+// Carrega e exibe serviços
+async function loadAndDisplayServices() {
+    try {
+        const response = await fetch('http://localhost:3000/servicos', {
+            method: 'GET',
+        });
+
+        if (!response.ok) throw new Error('Erro ao buscar serviços');
+
+        const services = await response.json();
+        const container = document.getElementById('lista-servicos');
+
+        // Limpa o container antes de adicionar novos elementos
+        container.innerHTML = '';
+
+        services.forEach((service, index) => {
+            const serviceElement = document.createElement('div');
+            serviceElement.innerHTML = `
+                <h3>${service.nome}</h3>
+                <img src="${service.imagem}" alt="${service.nome}">
+                <p>${service.atendimentos}</p>
+                <button onclick="editService(${index}, '${service.id}')">Editar</button>
+                <button onclick="deleteService(${index}, '${service.id}')">Deletar</button>
+            `;
+            container.appendChild(serviceElement);
+        });
+    } catch (error) {
+        console.error('Erro:', error);
+    }
 }
 
-function deleteItem(itemType, index) {
-    var items = JSON.parse(localStorage.getItem(itemType));
-    items.splice(index, 1); // Remove o item do arrayitems
-    localStorage.setItem(itemType, JSON.stringify(items)); // Atualiza o localStorage
-    loadAndDisplayItems(itemType); // Recarrega a lista após a exclusão
-    alert(`O elemento foi deletado`);
-    location.reload(); // Recarrega a página
+// Função para editar um serviço
+async function editService(index, serviceId) {
+    const newName = prompt("Digite o novo nome do serviço:");
+    const newImageURL = prompt("Digite a nova URL da imagem:");
+    const newDescription = prompt("Digite a nova descrição do atendimento:");
+
+    if (newName && newImageURL && newDescription) {
+        try {
+            const response = await fetch(`http://localhost:3000/servicos/${serviceId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome: newName, imagem: newImageURL, atendimentos: newDescription })
+            });
+
+            if (!response.ok) throw new Error('Erro ao editar serviço');
+
+            alert(`${newName} foi editado com sucesso.`);
+            loadAndDisplayServices(); // Recarrega a lista de serviços após a edição
+            location.reload(); // Recarrega a página
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao editar serviço.');
+        }
+    } else {
+        alert("Por favor, preencha todos os campos.");
+    }
+}
+
+// Função para deletar um serviço
+async function deleteService(index, serviceId) {
+    try {
+        const response = await fetch(`http://localhost:3000/servicos/${serviceId}`, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) throw new Error('Erro ao deletar serviço');
+
+        alert(`O serviço foi deletado`);
+        loadAndDisplayServices(); // Recarrega a lista de serviços após a exclusão
+        location.reload(); // Recarrega a página
+    } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao deletar serviço.');
+    }
+}
+
+
+// Event listener para carregar e exibir produtos e serviços quando a página é carregada
+document.addEventListener('DOMContentLoaded', function() {
+    // Carrega e exibe produtos
+    loadAndDisplayProducts();
+
+    // Carrega e exibe serviços
+    loadAndDisplayServices();
+});
+
+// Função para editar um produto
+async function editProduct(index, productId) {
+    const newName = prompt("Digite o novo nome do produto:");
+    const newImageURL = prompt("Digite a nova URL da imagem:");
+
+    if (newName && newImageURL) {
+        try {
+            const response = await fetch(`http://localhost:3000/produtos/${productId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome: newName, imagem: newImageURL })
+            });
+
+            if (!response.ok) throw new Error('Erro ao editar produto');
+
+            alert(`${newName} foi editado com sucesso.`);
+            loadAndDisplayProducts(); // Recarrega a lista de produtos após a edição
+            location.reload(); // Recarrega a página
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao editar produto.');
+        }
+    } else {
+        alert("Por favor, preencha ambos os campos.");
+    }
+}
+
+// Função para deletar um produto
+async function deleteProduct(index, productId) {
+    try {
+        const response = await fetch(`http://localhost:3000/produtos/${productId}`, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) throw new Error('Erro ao deletar produto');
+
+        alert(`O produto foi deletado`);
+        loadAndDisplayProducts(); // Recarrega a lista de produtos após a exclusão
+        location.reload(); // Recarrega a página
+    } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao deletar produto.');
+    }
 }
