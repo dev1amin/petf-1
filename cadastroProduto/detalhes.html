@@ -49,6 +49,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Obtém o ID do produto do localStorage
             const produtoId = localStorage.getItem('produtoId');
+            console.log('Produto ID:', produtoId); // Adicione este log para verificar o ID do produto
 
             // Faz a requisição à API para obter os detalhes do produto
             fetch(`https://api-render-pet.onrender.com/produtos/${produtoId}`)
