@@ -29,10 +29,7 @@
                     <li class="nav-item">
                         <a id="logarLink" class="nav-link text-light rounded-4 px-3 fs-5 fs-md-4 fw-bold" href="../login/signup/loginForm.html" style="background-color: #d6660a;">Logar</a>
                     </li>
-                    <li class="nav-item mt-2 mt-md-0 ms-md-2">
-                        <a id="inscreverLink" class="nav-link text-light rounded-4 px-3 fs-5 fs-md-4 fw-bold" href="../login/signup/cadastroForm.html" style="background-color: #d6660a;">Se inscrever</a>
-                    </li>
-                    <li class="nav-item mt-2 mt-md-0 ms-md-2">
+                         <li class="nav-item mt-2 mt-md-0 ms-md-2">
                         <a id="contaIcon" class="nav-link text-light rounded-4 px-3 fs-5 fs-md-4 fw-bold" href="../login/signup/perfil.html" style="background-color: #d6660a;">Conta</a>
                     </li>
                 </ul>
@@ -47,17 +44,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Obtém o ID do produto do localStorage
             const produtoId = localStorage.getItem('produtoId');
-            console.log('Produto ID:', produtoId); // Adicione este log para verificar o ID do produto
+            console.log('Produto ID:', produtoId);
 
-            // Faz a requisição à API para obter os detalhes do produto
             fetch(`https://api-render-pet.onrender.com/produtos/${produtoId}`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Produto não encontrado');
+                    }
+                    return response.json();
+                })
                 .then(produto => {
                     const productDetails = document.getElementById('productDetails');
-
-                    // Cria o HTML para exibir os detalhes do produto
                     productDetails.innerHTML = `
                         <div class="col-md-6">
                             <img src="${produto.imagem}" class="img-fluid" alt="${produto.nome}">
@@ -68,7 +66,11 @@
                         </div>
                     `;
                 })
-                .catch(error => console.error('Erro ao carregar detalhes do produto:', error));
+                .catch(error => {
+                    console.error('Erro ao carregar detalhes do produto:', error);
+                    const productDetails = document.getElementById('productDetails');
+                    productDetails.innerHTML = `<p class="text-danger">Erro ao carregar detalhes do produto: ${error.message}</p>`;
+                });
         });
     </script>
 
