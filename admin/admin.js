@@ -168,7 +168,7 @@ async function deleteProduct(index, productId) {
 // Carrega e exibe locais
 async function loadAndDisplayLocations() {
     try {
-        const response = await fetch('https://api-render-pet.onrender.com/locais', {
+        const response = await fetch('https://api-render-pet.onrender.com/local', {
             method: 'GET',
         });
 
@@ -202,7 +202,7 @@ async function editLocation(index, locationId) {
 
     if (newName && newAddress) {
         try {
-            const response = await fetch(`https://api-render-pet.onrender.com/locais/${locationId}`, {
+            const response = await fetch(`https://api-render-pet.onrender.com/local/${locationId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -227,7 +227,7 @@ async function editLocation(index, locationId) {
 // Função para deletar um local
 async function deleteLocation(index, locationId) {
     try {
-        const response = await fetch(`https://api-render-pet.onrender.com/locais/${locationId}`, {
+        const response = await fetch(`https://api-render-pet.onrender.com/local/${locationId}`, {
             method: 'DELETE',
         });
 
