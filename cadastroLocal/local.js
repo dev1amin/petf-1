@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    function loadServices() {
+    function loadLocations() {
         // Substituindo localStorage pela chamada à API
         fetch('https://api-render-pet.onrender.com/local')
         .then(response => response.json())
@@ -51,6 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Erro ao carregar local:', error));
     }
   
-    loadServices();
+    loadLocations();
   });
   
