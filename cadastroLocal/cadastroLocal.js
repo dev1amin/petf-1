@@ -3,7 +3,7 @@ document.getElementById('formLocal').addEventListener('submit', function(e) {
 
     var urlImagem = document.getElementById('urlImagem').value;
     var nomeLocal = document.getElementById('nomeLocal').value;
-    var endereço = document.getElementById('endereço').value;
+    var endereço = document.getElementById('localEndereço').value;
 
     // Gerando um ID fictício para demonstração
     var novoLocal = {
