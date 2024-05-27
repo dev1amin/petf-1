@@ -116,6 +116,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Carrega e exibe locais
     loadAndDisplayLocations();
+
+    // Carrega e exibe eventos
+    loadAndDisplayEvents();
 });
 
 // Função para editar um produto
