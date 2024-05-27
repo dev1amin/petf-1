@@ -26,7 +26,7 @@ document.getElementById('formLocal').addEventListener('submit', function(e) {
         if (data.success) {
             alert('Local cadastrado com sucesso. Atualize a página de local.');
         } else {
-            alert('Produto cadastrado com sucesso.');
+            alert('Local cadastrado com sucesso.');
         }
     })
  .catch(error => console.error('Erro:', error));
