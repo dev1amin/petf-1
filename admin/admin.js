@@ -184,7 +184,8 @@ async function loadAndDisplayLocations() {
             const locationElement = document.createElement('div');
             locationElement.innerHTML = `
                 <h3>${location.nome}</h3>
-                <p>${location.endereco}</p>
+                <img src="${location.imagem}" alt="${location.nome}">
+                <p>${location.endereço}</p>
                 <button onclick="editLocation(${index}, '${location.id}')">Editar</button>
                 <button onclick="deleteLocation(${index}, '${location.id}')">Deletar</button>
             `;
@@ -199,15 +200,16 @@ async function loadAndDisplayLocations() {
 async function editLocation(index, locationId) {
     const newName = prompt("Digite o novo nome do local:");
     const newAddress = prompt("Digite o novo endereço:");
+    const newImageURL = prompt("Digite a nova URL da imagem:");
 
-    if (newName && newAddress) {
+    if (newName && newAddress && newImageURL) {
         try {
             const response = await fetch(`https://api-render-pet.onrender.com/local/${locationId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ nome: newName, endereco: newAddress })
+                body: JSON.stringify({ nome: newName, imagem: newImageURL, endereço: newAddress })
             });
 
             if (!response.ok) throw new Error('Erro ao editar local');
