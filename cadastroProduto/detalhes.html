@@ -46,8 +46,7 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() 
-        {
+        document.addEventListener('DOMContentLoaded', function() {
             const produtoId = localStorage.getItem('produtoId');
 
             fetch(`https://api-render-pet.onrender.com/produtos/${produtoId}`)
@@ -61,7 +60,8 @@
                         </div>
                         <div class="col-md-6">
                             <h1>${produto.nome}</h1>
-                              <p class="descricao">Roupa 100% algodão, confortável e macia para seu melhor amigo.</p>
+                            <p class="descricao">Roupa 100% algodão, confortável e macia para seu melhor amigo.</p>
+                            <button class="btn btn-primary mt-3" id="addToCartButton">Adicionar ao Carrinho</button>
                         </div>
                     `;
                 })
