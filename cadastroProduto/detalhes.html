@@ -61,9 +61,15 @@
                         <div class="col-md-6">
                             <h1>${produto.nome}</h1>
                             <p class="descricao">Roupa 100% algodão, confortável e macia para seu melhor amigo.</p>
+                                <p class="descricao">R$89,90</p>
                             <button class="btn btn-primary mt-3" id="addToCartButton">Adicionar ao Carrinho</button>
                         </div>
                     `;
+
+                    // Adiciona o event listener ao botão
+                    document.getElementById('addToCartButton').addEventListener('click', function() {
+                        alert('Produto adicionado ao carrinho!');
+                    });
                 })
                 .catch(error => console.error('Erro ao carregar detalhes do produto:', error));
         });
