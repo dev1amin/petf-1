@@ -38,11 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
                   `;
   
                   var col = document.createElement('div');
-                  col.className = "col locationStyle";
+                  col.className = "col serviceStyle";
                   col.style.width = "33%";
                   col.innerHTML = cardBody.outerHTML;
   
-                  var row = document.querySelector('.location-cont');
+                  var row = document.querySelector('.service-cont');
                   if (row) {
                       row.appendChild(col);
                   }
