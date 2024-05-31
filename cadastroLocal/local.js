@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   `;
   
                   var col = document.createElement('div');
-                  col.className = "col serviceStyle";
+                  col.className = "col locationStyle";
                   col.style.width = "33%";
                   col.innerHTML = cardBody.outerHTML;
   
