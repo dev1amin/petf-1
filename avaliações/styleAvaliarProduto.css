@@ -168,4 +168,10 @@ form .btn button{
 .img-fluid{
     display: flex;
     align-items: center;
+    position:absolute;
+    padding-top: 80px;
+}
+.apresentaçãoProduto{
+  align-items: center;
+  display: flex;
 }
