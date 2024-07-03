@@ -1,7 +1,7 @@
 // Carrega e exibe produtos
 async function loadAndDisplayProducts() {
     try {
-        const response = await fetch('https://api-pet-pugp.onrender.com/produtos', {
+        const response = await fetch('https://api-render-pet.onrender.com/', {
             method: 'GET',
         });
 
@@ -128,7 +128,7 @@ async function editProduct(index, productId) {
 
     if (newName && newImageURL) {
         try {
-            const response = await fetch(`https://api-pet-pugp.onrender.com/produtos/${productId}`, {
+            const response = await fetch(`https://api-render-pet.onrender.com//${productId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -153,7 +153,7 @@ async function editProduct(index, productId) {
 // Função para deletar um produto
 async function deleteProduct(index, productId) {
     try {
-        const response = await fetch(`https://api-pet-pugp.onrender.com/produtos/${productId}`, {
+        const response = await fetch(`https://api-render-pet.onrender.com//${productId}`, {
             method: 'DELETE',
         });
 
