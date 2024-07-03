@@ -59,6 +59,7 @@ html{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 180px;
 }
 
     input #rate-5:checked ~ label{
@@ -169,7 +170,7 @@ form .btn button{
     display: flex;
     align-items: center;
     position:absolute;
-    padding-top: 80px;
+    padding-top: 220px;
 }
 .apresentaçãoProduto{
   align-items: center;
