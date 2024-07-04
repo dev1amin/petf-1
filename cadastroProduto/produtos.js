@@ -37,7 +37,7 @@ window.onload = function() {
               document.getElementById(`corB2${index + 1}`).addEventListener('click', function() {
                   // Armazena o ID do produto no localStorage e redireciona para a página de detalhes
                   localStorage.setItem('produtoId', produto.id);
-                  window.location.href = './cadastroProduto/detalhes.html';
+                  window.location.href = './detalhes.html';
               });
           });
       })
