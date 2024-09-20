@@ -1,6 +1,31 @@
 html{
   font-family:"Montserrat", sans-serif;
 }
+  
+.main-container {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Alinha o conteúdo horizontalmente no centro */
+  justify-content: center; /* Alinha verticalmente no centro */
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#Pet, #Produtos, #Mapa {
+  width: 100%;
+  text-align: center;
+}
+
+.product-cont {
+  justify-content: center; /* Centraliza os produtos */
+}
+
 #cor{
   background-color: #d6660a;
 }
