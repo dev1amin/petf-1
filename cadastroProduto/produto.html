@@ -131,8 +131,24 @@
     </div>
    </footer>
 
-    <script src="../login/signup/auth.js"></script>
-    <script src="cadastro.js"></script> 
+   <script>
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+    const logarLink = document.getElementById('logarLink');
+    const inscreverLink = document.getElementById('inscreverLink');
+    const contaIcon = document.getElementById('contaIcon');
+
+    if (usuarioLogado) {
+        logarLink.style.display = 'none';
+        inscreverLink.style.display = 'none';
+        contaIcon.style.display = 'block';
+    } else {
+        logarLink.style.display = 'block';
+        inscreverLink.style.display = 'block';
+        contaIcon.style.display = 'none';
+    }
+</script>
+
     <script>
       function selecionarProduto(produtoId) {
           localStorage.setItem('produtoId', produtoId);

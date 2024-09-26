@@ -19,22 +19,16 @@
       <nav class="d-flex flex-column flex-md-row justify-content-between w-100">
         <ul class="nav flex-column flex-md-row">
           <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="#">Locais</a>
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroProduto/produto.html">Produtos</a>
           </li>
           <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroProduto/produto.html">Produtos</a>
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="#">Lazer</a>
           </li>
           <li class="nav-item">
             <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroServicos/servicos.html">Serviços</a>
           </li>
           <li class="nav-item">
             <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroEventos/evento.html">Eventos</a>
-          </li>
-          <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../posts/post.html">Posts</a>
-          </li>
-          <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../artigos/articles.html">Artigos</a>
           </li>
         </ul>
         <ul class="nav flex-column flex-md-row">
@@ -54,16 +48,119 @@
   </header>
 
   <section id="Local" class="container-fluid">
-    <p id="corT2" class="ms-5 mt-3 text-start fs-1 fw-bold">Locais Pet-Friendly</p>
+    <p id="corT2" class="ms-5 mt-3 text-start fs-1 fw-bold">Locais de Lazer Pet-Friendly</p>
     <div class="container mt-5" style="margin-top: 19px !important;">
-      <div class="service-cont row row-cols-1 row-cols-md-4 g-4" style="    gap: 10px;
+        <div class="service-cont row row-cols-1 row-cols-md-4 g-4" style="gap: 10px; justify-content: left;">
+            
+         
+            <div class="col locationStyle" style="width: 33%;">
+                <div class="card-body text-center">
+                    <div id="imagem1">
+                        <img src="../imagens/local1.png" class="img-fluid">
+                    </div>
+                    <h5 id="nome1" style="font-weight: 800; color: #E85D0C; margin-top: -15px!important; margin-bottom: -5px;" class="mt-3">Pet Café
+                    </h5>
+                    <h2 id="endereço1" style="font-size: 11px; font-weight: 800; color: #E85D0C;" class="mt-3">R. Sergipe, 1187 - Savassi, Belo Horizonte - MG
+                    </h2>
+                    <a href="javascript:void(0);" onclick="selecionarLocal('1');" id="corB2" class="btn mt-3 text-light fw-bold rounded-4">Veja Mais 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
 
-      justify-content: left;
-      ">
+        
+            <div class="col locationStyle" style="width: 33%;">
+                <div class="card-body text-center">
+                    <div id="imagem2">
+                        <img src="../imagens/local2.png" class="img-fluid">
+                    </div>
+                    <h5 id="nome2" style="font-weight: 800; color: #E85D0C; margin-top: -15px!important; margin-bottom: -5px;" class="mt-3">Pátio Savassi
+                    </h5>
+                    <h2 id="endereço2" style="font-size: 11px; font-weight: 800; color: #E85D0C;" class="mt-3">Av. do Contorno, 6061 - São Pedro, Belo Horizonte - MG
+                    </h2>
+                    <a href="javascript:void(0);" onclick="selecionarLocal('2');" id="corB2" class="btn mt-3 text-light fw-bold rounded-4">Veja Mais
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
 
-      </div>
+           
+            <div class="col locationStyle" style="width: 33%;">
+                <div class="card-body text-center">
+                    <div id="imagem3">
+                        <img src="../imagens/local3.png" class="img-fluid">
+                    </div>
+                    <h5 id="nome3" style="font-weight: 800; color: #E85D0C; margin-top: -15px!important; margin-bottom: -5px;" class="mt-3">Café com Letras
+                    </h5>
+                    <h2 id="endereço3" style="font-size: 11px; font-weight: 800; color: #E85D0C;" class="mt-3">R. Antônio de Albuquerque, 781 - Savassi, Belo Horizonte - MG
+                    </h2>
+                    <a href="javascript:void(0);" onclick="selecionarLocal('3');" id="corB2" class="btn mt-3 text-light fw-bold rounded-4">Veja Mais 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+                   
+            <div class="col locationStyle" style="width: 33%;">
+                <div class="card-body text-center">
+                    <div id="imagem3">
+                        <img src="../imagens/local4.png" class="img-fluid">
+                    </div>
+                    <h5 id="nome3" style="font-weight: 800; color: #E85D0C; margin-top: -15px!important; margin-bottom: -5px;" class="mt-3">CJ's Burguer
+                      </h5>
+                    <h2 id="endereço3" style="font-size: 11px; font-weight: 800; color: #E85D0C;" class="mt-3">R. Fernandes Tourinho, 241 - Funcionários, Belo Horizonte - MG
+                    </h2>
+                    <a href="javascript:void(0);" onclick="selecionarLocal('4');" id="corB2" class="btn mt-3 text-light fw-bold rounded-4">Veja Mais 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+                 
+            <div class="col locationStyle" style="width: 33%;">
+                <div class="card-body text-center">
+                    <div id="imagem3">
+                        <img src="../imagens/local5.png" class="img-fluid">
+                    </div>
+                    <h5 id="nome3" style="font-weight: 800; color: #E85D0C; margin-top: -15px!important; margin-bottom: -5px;" class="mt-3">Dona Lucinha Restaurante
+                    </h5>
+                    <h2 id="endereço3" style="font-size: 11px; font-weight: 800; color: #E85D0C;" class="mt-3">R. Padre Odorico, 38 - Savassi, Belo Horizonte - MG
+                    </h2>
+                    <a href="javascript:void(0);" onclick="selecionarLocal('5');" id="corB2" class="btn mt-3 text-light fw-bold rounded-4">Veja Mais
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+                       
+            <div class="col locationStyle" style="width: 33%;">
+                <div class="card-body text-center">
+                    <div id="imagem3">
+                        <img src="../imagens/local6.png" class="img-fluid">
+                    </div>
+                    <h5 id="nome3" style="font-weight: 800; color: #E85D0C; margin-top: -15px!important; margin-bottom: -5px;" class="mt-3">BH Shopping
+                    </h5>
+                    <h2 id="endereço3" style="font-size: 11px; font-weight: 800; color: #E85D0C;" class="mt-3">BR-356, 3049 - Belvedere, Belo Horizonte - MG
+                    </h2>
+                    <a href="javascript:void(0);" onclick="selecionarLocal('6');" id="corB2" class="btn mt-3 text-light fw-bold rounded-4">Veja no Mapa 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </section>
+</section>
+
 
   <footer id="corB3" class="mt-5 p-5">
     <div class="container">
@@ -118,24 +215,30 @@
     </div>
    </footer>
 
-    <script src="local.js"></script>
     <script src="cadastroLocal.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-    
-        if (usuarioLogado) {
-          document.getElementById('logarLink').style.display = 'none';
-          document.getElementById('inscreverLink').style.display = 'none';
-          document.getElementById('contaIcon').style.display = 'inline-block';
-        } else {
-          document.getElementById('contaIcon').style.display = 'none';
-          document.getElementById('logarLink').style.display = 'inline-block';
-          document.getElementById('inscreverLink').style.display = 'inline-block';
-        }
-      });
+      function selecionarLocal(produtoId) {
+          localStorage.setItem('produtoId', produtoId);
+          window.location.href = 'detalhesLocal.html';
+      }
     </script>
-    <script src="../login/signup/auth.js"></script>
+    <script>
+      const usuarioLogado = localStorage.getItem('usuarioLogado');
+  
+      const logarLink = document.getElementById('logarLink');
+      const inscreverLink = document.getElementById('inscreverLink');
+      const contaIcon = document.getElementById('contaIcon');
+  
+      if (usuarioLogado) {
+          logarLink.style.display = 'none';
+          inscreverLink.style.display = 'none';
+          contaIcon.style.display = 'block';
+      } else {
+          logarLink.style.display = 'block';
+          inscreverLink.style.display = 'block';
+          contaIcon.style.display = 'none';
+      }
+  </script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalhes do Local</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../avaliações/style.css" rel="stylesheet">
+    <style>
+      .local-name {
+          margin-left: 30px;
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: #d6660a;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .local-description {
+          margin-top: 100px;
+          margin-left: -40px;
+          font-size: 1.2rem;
+          line-height: 1.5;
+          color: #333;
+          background-color: #eeeaea;
+          border-left: 4px solid #d6660a;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .local-address {
+          margin-top: 10px;
+          margin-left: -40px;
+          font-size: 1.2rem;
+          line-height: 1.5;
+          color: #333;
+          background-color: #eeeaea;
+          border-left: 4px solid #d6660a;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .view-website-button {
+          margin-top: 10px;
+          margin-left: -40px;
+      }
+
+      .carousel-item img {
+          max-height: 400px;
+          min-height: 400px;
+          object-fit: cover;
+          border: 2px solid #d6660a;
+          padding: 10px;
+          border-radius: 10px;
+          margin-left: 35px;
+          max-width: 80%;
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: #000000;
+        border-radius: 50%;
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+          width: 5%;
+          top: 50%;
+          transform: translateY(-50%);         
+      }
+
+      .carousel-control-next {
+    left: 86%;
+    transform: translateY(-50%);
+    }
+
+    .local-rating {
+    margin-left: -40px;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    color: #d6660a;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header class="container-fluid">
+    <div class="d-flex flex-column flex-md-row align-items-center">
+        <a href="../index.html"><img src="../imagens/logoPet.png" width="130px" height="100px" alt="Logo" class="me-3"></a>
+      <nav class="d-flex flex-column flex-md-row justify-content-between w-100">
+        <ul class="nav flex-column flex-md-row">
+          <li class="nav-item">
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroProduto/produto.html">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroLocal/local.html">Lazer</a>
+          </li>
+          <li class="nav-item">
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroServicos/servicos.html">Serviços</a>
+          <li class="nav-item">
+          <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroEventos/evento.html">Eventos</a>
+          </li>
+        </ul>
+        <ul class="nav flex-column flex-md-row">
+          <li class="nav-item">
+            <a id="logarLink" class="nav-link text-light rounded-4 px-3 fs-5 fs-md-4 fw-bold" href="../login/signup/loginForm.html" style="background-color: #d6660a;">Logar</a>
+          </li>
+          <li class="nav-item mt-2 mt-md-0 ms-md-2">
+            <a id="inscreverLink" class="nav-link text-light rounded-4 px-3 fs-5 fs-md-4 fw-bold" href="../login/signup/cadastroForm.html" style="background-color: #d6660a;">Se inscrever</a>
+          </li>
+          <li class="nav-item mt-2 mt-md-0 ms-md-2">
+                        <a id="contaIcon" class="nav-link text-light rounded-4 px-3 fs-5 fs-md-4 fw-bold" href="../login/signup/perfil.html" style="background-color: #d6660a;">Conta</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <hr style="border-top: 2px solid black; width: 100%;margin-top: 0px;">
+  </header>
+
+    <div class="container mt-5">
+        <div id="localDetails" class="row">
+            <div class="col-md-6">
+                <h1 id="localName" class="local-name mb-3"></h1>
+                <div id="localCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="carouselImages">
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#localCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#localCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p id="localDescription" class="local-description"></p>
+                <p id="localAddress" class="local-address"></p>
+                <div id="averageRating" class="local-rating"></div>
+                <div class="view-website-button">
+                    <button style="background-color: #E85D0C; color: white; font-weight: bold;" class="btn" id="viewWebsiteButton">Ver no Mapa</button>
+                    <a href="../posts/post.html" style="background-color: #E85D0C; color: white; font-weight: bold;" class="btn">Ver Comentários</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="corB3" class="mt-5 p-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md">
+              <h6 class="mb-2">iPet</h6>
+              <p class="text-light">iPet é uma plataforma que visa facilitar donos de pet a encontrarem lugar ideal para seu amigo de 4 patas.</p>
+            </div>
+            <div class="col-md">
+              <h6 class="mb-2">Serviços</h6>
+              <p class="text-light">Restaurantes<br>Lojas<br>Shoppings</p>
+            </div>
+            <div class="col-md">
+              <h6 class="mb-2">Empresa</h6>
+              <p class="text-light">Quem Somos<br>Nossa Equipe<br>Contato</p>
+            </div>
+            <div class="col-md" style="flex: 3;">
+              <h6 class="mb-6">Receba Notícias</h6>
+              <form id="meuFormulario" action="#" method="post" class="d-flex">
+                <input style="height: 40px;" type="email" id="email" class="form-control me-1" placeholder="Seu e-mail" aria-label="Seu e-mail" aria-describedby="button-addon2" required>
+                <button style="    margin: 0 !important;
+                font-size: 11px !important;
+                width: 30%;" id="corB" class="btn ms-1 mt-3 me-0 text-light rounded-2 fs-6 fw-bold" type="submit">Se Inscrever</button>
+              </form>
+              <div style="    display: flex;
+              justify-content: end;">
+                <a style="    text-decoration: none;          " href="https://www.instagram.com/ipetoficialbh/" target="_blank">
+                  <img style="    height: 50px;     margin-top: 10px;" src="../imagens/instagram.png" alt="Instagram" class="">
+                </a>
+                <a style="    text-decoration: none;          " href="https://www.x.com/ipetoficial/" target="_blank">
+                  <img style="    height: 50px;     margin-top: 10px;" src="../imagens/twitter.png" alt="Twitter" class="">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr style="border-top: 2px solid white; width: 100%; margin-top: 0px;">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center" style="color: white">
+          <p class="mb-0 me-md-5">Copyright iPet</p>
+          <div class="d-flex align-items-center">
+            <img src="../imagens/loc.png" alt="Localização" class="me-2"> 
+            <p class="mb-0 me-md-5">Belo Horizonte, MG</p>
+          </div>
+          <div class="d-flex align-items-center">
+            <img src="../imagens/mail.png" alt="Email" class="me-2">
+            <p class="mb-0 me-md-5">ipet.contato@gmail.com</p>
+          </div>
+          <div class="d-flex align-items-center">
+            <img src="../imagens/phone.png" alt="Telefone" class="me-2">
+            <p class="mb-0">+55 31 99999-9999</p>
+         </div>
+        </div>
+       </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const localId = localStorage.getItem('produtoId');
+            const localDetailsContainer = document.getElementById('localDetails');
+            const viewWebsiteButton = document.getElementById('viewWebsiteButton');
+            const localNameElement = document.getElementById('localName');
+            const localDescriptionElement = document.getElementById('localDescription');
+            const localAddressElement = document.getElementById('localAddress');
+            const carouselImages = document.getElementById('carouselImages');
+            const averageRatingElement = document.getElementById('averageRating');
+
+            const localData = {
+    "1": { 
+        name: "Pet Café", 
+        description: "Descubra o Pet Café, um espaço acolhedor onde amantes de animais podem desfrutar de um delicioso café enquanto seus pets brincam em um ambiente seguro e divertido. Com áreas amplas, é o lugar perfeito para lanches com os amigos de quatro patas e para desfrutar de momentos inesquecíveis.", 
+        images: ["../imagens/local1.png", "../imagens/local1_2.jpeg", "../imagens/local1_3.jpeg", "../imagens/local1_4.jpeg"],
+        address: "R. Sergipe, 1187 - Savassi, Belo Horizonte - MG", 
+        link: "../index.html#Mapa",
+        ratings: [4, 5, 3, 4, 5, 5] 
+    },
+    "2": { 
+        name: "Pátio Savassi", 
+        description: "No coração da cidade, o Pátio Savassi é mais do que um shopping; é um ponto de encontro para os amantes de pets. Com lojas variadas que agrada tanto os humanos quanto os pets. Um ambiente descontraído, ideal para encontros e diversão.", 
+        images: ["../imagens/local2.png", "../imagens/local2_2.jpeg", "../imagens/local2_3.jpg"],
+        address: "Av. do Contorno, 6061 - São Pedro, Belo Horizonte - MG",  
+        link: "../index.html#Mapa",
+        ratings: [4, 2, 3, 4, 5] 
+    },
+    "3": { 
+        name: "Café com Letras", 
+        description: "O Café com Letras é um refúgio encantador para quem adora literatura e animais. Com uma decoração inspiradora, esse espaço é perfeito para os amantes de cães, oferecendo um ambiente seguro para os pets se socializarem enquanto você desfruta de um bom livro e uma deliciosa xícara de café. Um local onde a cultura e o amor pelos animais se encontram.", 
+        images: ["../imagens/local3.png", "../imagens/local3_2.jpeg", "../imagens/local3_3.jpg"],
+        address: "R. Antônio de Albuquerque, 781 - Savassi, Belo Horizonte - MG",  
+        link: "../index.html#Mapa",
+        ratings: [4, 1, 3, 4, 5] 
+    },
+
+    "4": { 
+        name: "CJ's Burguer", 
+        description: "No CJ's Burguer, o sabor é garantido para todos, incluindo os pets! Este hamburgueria gourmet oferece um cardápio variado de lanches deliciosos, com opções especiais para os nossos amigos de quatro patas. Venha aproveitar uma refeição deliciosa em um ambiente pet friendly, onde todos são bem-vindos a compartilhar bons momentos.", 
+        images: ["../imagens/local4.png", "../imagens/local4_2.jpeg", "../imagens/local4_3.jpeg"],
+        address: "R. Fernandes Tourinho, 241 - Funcionários, Belo Horizonte - MG",  
+        link: "../index.html#Mapa",
+        ratings: [4, 5, 5, 4, 5] 
+    },
+
+    "5": { 
+        name: "Dona Lucinha Restaurante", 
+        description: "O Dona Lucinha Restaurante é um local acolhedor que combina a boa comida mineira com a presença dos nossos amigos peludos. Com um ambiente familiar e amigável, este restaurante oferece um cardápio repleto de sabores que agradam tanto os humanos quanto os pets. É o lugar ideal para um almoço em família, onde até os pets têm espaço para relaxar.", 
+        images: ["../imagens/local5.png", "../imagens/local5_2.jpeg", "../imagens/local5_3.jpeg"],
+        address: "R. Padre Odorico, 38 - Savassi, Belo Horizonte - MG",  
+        link: "../index.html#Mapa" ,
+        ratings: [4, 5, 3, 5, 5]
+    },
+
+    "6": { 
+        name: "BH Shopping", 
+        description: "O BH Shopping não é apenas um centro de compras; é um destino pet friendly! Com várias lojas que aceitam pets e áreas designadas para passeios com eles, você pode fazer suas compras enquanto seu cãozinho se diverte ao seu lado. Aproveite também as opções de alimentação que atendem a todos os gostos, tornando sua visita ainda mais especial.", 
+        images: ["../imagens/local6.png", "../imagens/local6_2.jpg", "../imagens/local6_3.jpg"],
+        address: "BR-356, 3049 - Belvedere, Belo Horizonte - MG",  
+        link: "../index.html#Mapa",
+        ratings: [4, 5, 3, 4, 5] 
+    }
+};
+
+            const local = localData[localId];
+            
+            if (local) {
+                localNameElement.textContent = local.name;
+                localDescriptionElement.textContent = local.description;
+                localAddressElement.textContent = local.address;
+
+                viewWebsiteButton.onclick = function() {
+                    window.location.href = local.link;
+                };
+
+                // Inserir as imagens no carrossel
+                local.images.forEach((imageUrl, index) => {
+                    const carouselItem = document.createElement('div');
+                    carouselItem.className = 'carousel-item' + (index === 0 ? ' active' : '');
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imageUrl;
+                    imgElement.className = 'd-block w-100';
+                    imgElement.alt = `Imagem ${index + 1}`;
+                    carouselItem.appendChild(imgElement);
+                    carouselImages.appendChild(carouselItem);
+                });
+
+            function calculateAverage(ratings) {
+                const total = ratings.reduce((acc, curr) => acc + curr, 0);
+                return (total / ratings.length).toFixed(1);
+            }
+            const average = calculateAverage(local.ratings);
+            averageRatingElement.innerHTML = `&#9733; ${average} / 5`;
+        }
+    });
+    </script>
+
+<script>
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+    const logarLink = document.getElementById('logarLink');
+    const inscreverLink = document.getElementById('inscreverLink');
+    const contaIcon = document.getElementById('contaIcon');
+
+    if (usuarioLogado) {
+        logarLink.style.display = 'none';
+        inscreverLink.style.display = 'none';
+        contaIcon.style.display = 'block';
+    } else {
+        logarLink.style.display = 'block';
+        inscreverLink.style.display = 'block';
+        contaIcon.style.display = 'none';
+    }
+</script>
+
+</body>
+
+</html>

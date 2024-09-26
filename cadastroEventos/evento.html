@@ -15,25 +15,20 @@
 <body>
   <header class="container-fluid">
     <div class="d-flex flex-column flex-md-row align-items-center">
-        <a href="../index.html"><img src="../imagens/logoPet.png" width="130px" height="100px" alt="Logo" class="me-3"></a>
+      <a href="../index.html"><img src="../imagens/logoPet.png" width="130px" height="100px" alt="Logo" class="me-3"></a>
       <nav class="d-flex flex-column flex-md-row justify-content-between w-100">
         <ul class="nav flex-column flex-md-row">
-          <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroLocal/local.html">Locais</a>
-          </li>
           <li class="nav-item">
             <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroProduto/produto.html">Produtos</a>
           </li>
           <li class="nav-item">
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroLocal/local.html">Lazer</a>
+          </li>
+          <li class="nav-item">
             <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroServicos/servicos.html">Serviços</a>
-          <li class="nav-item">
-          <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroEventos/evento.html">Eventos</a>
           </li>
           <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../posts/post.html">Posts</a>
-          </li>
-          <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../artigos/articles.html">Artigos</a>
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroEventos/evento.html">Eventos</a>
           </li>
         </ul>
         <ul class="nav flex-column flex-md-row">
@@ -49,14 +44,48 @@
         </ul>
       </nav>
     </div>
-    <hr style="border-top: 2px solid black; width: 100%;margin-top: 0px;">
+    <hr style="border-top: 2px solid black; width: 100%; margin-top: 0px;">
   </header>
 
   <section id="Evento" class="container-fluid">
-    <p id="corT2" class="ms-5 mt-3 text-start fs-1 fw-bold">Nossos eventos</p>
+    <p id="corT2" class="ms-5 mt-3 text-start fs-1 fw-bold">Locais de Eventos para Pets</p>
     <div id="eventCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
       <div class="carousel-inner service-cont" style="gap: 10px; justify-content: left;">
-        <!-- Dynamic slides will be injected here -->
+        <div class="carousel-item active">
+          <div class="card text-center">
+            <img src="../imagens/evento1.jpg" class="card-img-top img-fluid" alt="Evento 1">
+            <div class="card-body">
+              <h5 class="card-title" style="font-weight: 800; color: #E85D0C;">Encontro de goldens da Animalle Mundo Pet
+              </h5>
+              <p class="card-text" style="font-size: 11px; font-weight: 800; color: #E85D0C;">Atividades de socialização de cães e sorteio de brindes.
+              </p>
+              <p class="card-text" style="font-size: 11px; color: #E85D0C;"> Av. do Contorno, 8931 - Gutierrez, Belo Horizonte - MG
+              </p>
+              <a href="../index.html#Mapa" id="corB" class="btn mt-3 text-light fw-bold rounded-4">Veja no Mapa 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                  <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="card text-center">
+            <img src="../imagens/evento2.png" class="card-img-top img-fluid" alt="Evento 2">
+            <div class="card-body">
+              <h5 class="card-title" style="font-weight: 800; color: #E85D0C;">REIKI PET
+              </h5>
+              <p class="card-text" style="font-size: 11px; font-weight: 800; color: #E85D0C;">AESSENCIAL FEST - O melhor evento de terapia holística do Brasil.
+              </p>
+              <p class="card-text" style="font-size: 11px; color: #E85D0C;"> R. do Ouro, 900 - Serra, Belo Horizonte - MG</p>
+              <a href="../index.html#Mapa" id="corB" class="btn mt-3 text-light fw-bold rounded-4">Veja no Mapa 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                  <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -68,6 +97,7 @@
       </button>
     </div>
   </section>
+
   <footer id="corB3" class="mt-5 p-5">
     <div class="container">
       <div class="row">
@@ -120,25 +150,24 @@
      </div>
     </div>
    </footer>
-  <script src="evento.js"></script>
-  <script src="cadastroEvento.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-  
-      if (usuarioLogado) {
-        document.getElementById('logarLink').style.display = 'none';
-        document.getElementById('inscreverLink').style.display = 'none';
-        document.getElementById('contaIcon').style.display = 'inline-block';
-      } else {
-        document.getElementById('contaIcon').style.display = 'none';
-        document.getElementById('logarLink').style.display = 'inline-block';
-        document.getElementById('inscreverLink').style.display = 'inline-block';
-      }
-    });
-  </script>
-  <script src="../login/signup/auth.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   <script>
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+    const logarLink = document.getElementById('logarLink');
+    const inscreverLink = document.getElementById('inscreverLink');
+    const contaIcon = document.getElementById('contaIcon');
+
+    if (usuarioLogado) {
+        logarLink.style.display = 'none';
+        inscreverLink.style.display = 'none';
+        contaIcon.style.display = 'block';
+    } else {
+        logarLink.style.display = 'block';
+        inscreverLink.style.display = 'block';
+        contaIcon.style.display = 'none';
+    }
+</script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>

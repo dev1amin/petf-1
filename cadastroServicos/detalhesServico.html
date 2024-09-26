@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalhes do Serviço</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../avaliações/style.css" rel="stylesheet">
+    <style>
+      .service-name {
+          margin-left: 30px;
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: #d6660a;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .service-description{
+          margin-top: 100px;
+          margin-left: -40px;
+          font-size: 1.2rem;
+          line-height: 1.5;
+          color: #333;
+          background-color: #eeeaea;
+          border-left: 4px solid #d6660a;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-location {
+          margin-top: 10px;
+          margin-left: -40px;
+          font-size: 1.2rem;
+          line-height: 1.5;
+          color: #333;
+          background-color: #eeeaea;
+          border-left: 4px solid #d6660a;
+          padding: 10px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .view-service-button {
+          margin-top: 10px;
+          margin-left: -40px;
+      }
+
+      .carousel-item img {
+          max-height: 400px;
+          min-height: 400px;
+          object-fit: cover;
+          border: 2px solid #d6660a;
+          padding: 10px;
+          border-radius: 10px;
+          margin-left: 35px;
+          max-width: 80%;
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: #000000;
+        border-radius: 50%;
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+          width: 5%;
+          top: 50%;
+          transform: translateY(-50%);         
+      }
+
+      .carousel-control-next {
+    left: 86%;
+    transform: translateY(-50%);
+    }
+
+      .service-rating {
+        margin-left: -40px;
+        margin-top: 10px;
+        font-size: 1.5rem;
+        color: #d6660a;
+      }
+    </style>
+</head>
+
+<body>
+  <header class="container-fluid">
+    <div class="d-flex flex-column flex-md-row align-items-center">
+        <a href="../index.html"><img src="../imagens/logoPet.png" width="130px" height="100px" alt="Logo" class="me-3"></a>
+      <nav class="d-flex flex-column flex-md-row justify-content-between w-100">
+        <ul class="nav flex-column flex-md-row">
+          <li class="nav-item">
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroProduto/produto.html">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroLocal/local.html">Lazer</a>
+          </li>
+          <li class="nav-item">
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroServicos/servicos.html">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroEventos/evento.html">Eventos</a>
+          </li>
+        </ul>
+        <ul class="nav flex-column flex-md-row">
+          <li class="nav-item">
+            <a id="logarLink" class="nav-link text-light rounded-4 px-3 fs-5 fs-md-4 fw-bold" href="../login/signup/loginForm.html" style="background-color: #d6660a;">Logar</a>
+          </li>
+          <li class="nav-item mt-2 mt-md-0 ms-md-2">
+            <a id="inscreverLink" class="nav-link text-light rounded-4 px-3 fs-5 fs-md-4 fw-bold" href="../login/signup/cadastroForm.html" style="background-color: #d6660a;">Se inscrever</a>
+          </li>
+          <li class="nav-item mt-2 mt-md-0 ms-md-2">
+            <a id="contaIcon" class="nav-link text-light rounded-4 px-3 fs-5 fs-md-4 fw-bold" href="../login/signup/perfil.html" style="background-color: #d6660a;">Conta</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <hr style="border-top: 2px solid black; width: 100%;margin-top: 0px;">
+  </header>
+
+  <div class="container mt-5">
+    <div id="serviceDetails" class="row">
+        <div class="col-md-6">
+            <h1 id="serviceName" class="service-name mb-3"></h1>
+            <div id="serviceCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="carouselImages"></div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#serviceCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#serviceCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p id="serviceDescription" class="service-description"></p>
+            <p id="serviceLocation" class="service-location"></p>
+            <div id="averageRating" class="service-rating"></div>
+            <div class="view-service-button">
+                <button style="background-color: #E85D0C; color: white; font-weight: bold;" class="btn" id="viewWebsiteButton">Ver no Mapa</button>
+                <a href="../posts/post.html" style="background-color: #E85D0C; color: white; font-weight: bold;" class="btn">Ver Comentários</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer id="corB3" class="mt-5 p-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md">
+              <h6 class="mb-2">iPet</h6>
+              <p class="text-light">iPet é uma plataforma que visa facilitar donos de pet a encontrarem lugar ideal para seu amigo de 4 patas.</p>
+            </div>
+            <div class="col-md">
+              <h6 class="mb-2">Serviços</h6>
+              <p class="text-light">Restaurantes<br>Lojas<br>Shoppings</p>
+            </div>
+            <div class="col-md">
+              <h6 class="mb-2">Empresa</h6>
+              <p class="text-light">Quem Somos<br>Nossa Equipe<br>Contato</p>
+            </div>
+            <div class="col-md" style="flex: 3;">
+              <h6 class="mb-6">Receba Notícias</h6>
+              <form id="meuFormulario" action="#" method="post" class="d-flex">
+                <input style="height: 40px;" type="email" id="email" class="form-control me-1" placeholder="Seu e-mail" aria-label="Seu e-mail" aria-describedby="button-addon2" required>
+                <button style="    margin: 0 !important;
+                font-size: 11px !important;
+                width: 30%;" id="corB" class="btn ms-1 mt-3 me-0 text-light rounded-2 fs-6 fw-bold" type="submit">Se Inscrever</button>
+              </form>
+              <div style="    display: flex;
+              justify-content: end;">
+                <a style="    text-decoration: none;          " href="https://www.instagram.com/ipetoficialbh/" target="_blank">
+                  <img style="    height: 50px;     margin-top: 10px;" src="../imagens/instagram.png" alt="Instagram" class="">
+                </a>
+                <a style="    text-decoration: none;          " href="https://www.x.com/ipetoficial/" target="_blank">
+                  <img style="    height: 50px;     margin-top: 10px;" src="../imagens/twitter.png" alt="Twitter" class="">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr style="border-top: 2px solid white; width: 100%; margin-top: 0px;">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center" style="color: white">
+          <p class="mb-0 me-md-5">Copyright iPet</p>
+          <div class="d-flex align-items-center">
+            <img src="../imagens/loc.png" alt="Localização" class="me-2"> 
+            <p class="mb-0 me-md-5">Belo Horizonte, MG</p>
+          </div>
+          <div class="d-flex align-items-center">
+            <img src="../imagens/mail.png" alt="Email" class="me-2">
+            <p class="mb-0 me-md-5">ipet.contato@gmail.com</p>
+          </div>
+          <div class="d-flex align-items-center">
+            <img src="../imagens/phone.png" alt="Telefone" class="me-2">
+            <p class="mb-0">+55 31 99999-9999</p>
+         </div>
+        </div>
+       </footer>  
+    
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+       <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const servicoId = localStorage.getItem('produtoId');
+            const serviceNameElement = document.getElementById('serviceName');
+            const serviceDescriptionElement = document.getElementById('serviceDescription');
+            const serviceLocationElement = document.getElementById('serviceLocation');
+            const carouselImages = document.getElementById('carouselImages');
+            const averageRatingElement = document.getElementById('averageRating');
+            const viewWebsiteButton = document.getElementById('viewWebsiteButton');
+
+            const localData = {
+                "1": {
+                    name: "Pet Happy",
+                    description: "Um Pet-Shop dedicado ao bem-estar dos seus pets.",
+                    address: "R. Sergipe, 1140 - Savassi, Belo Horizonte - MG",
+                    link: "../index.html#Mapa",
+                    images: ["../imagens/servico1.png", "../imagens/servico1_2.jpeg"],
+                    ratings: [4, 5, 4, 5, 4]
+                },
+                "2": {
+                    name: "CatDog Savassi",
+                    description: "Um Pet-Shop completo, onde você encontra tudo o que seu pet precisa.",
+                    address: "R. Pernambuco, 1000 - Loja 11 - Savassi, Belo Horizonte - MG",
+                    link: "../index.html#Mapa",
+                    images: ["../imagens/servico2.png", "../imagens/servico2_2.jpg"],
+                    ratings: [5, 4, 5, 4, 5]
+                }
+            };
+
+            const servico = localData[servicoId];
+
+            if (!servico) {
+                alert('Serviço não encontrado!');
+                return;
+            }
+
+            serviceNameElement.textContent = servico.name;
+            serviceDescriptionElement.textContent = servico.description;
+            serviceLocationElement.textContent = servico.address;
+
+            viewWebsiteButton.onclick = function () {
+                window.location.href = servico.link;
+            };
+
+            servico.images.forEach((imageUrl, index) => {
+                const carouselItem = document.createElement('div');
+                carouselItem.className = 'carousel-item' + (index === 0 ? ' active' : '');
+                const imgElement = document.createElement('img');
+                imgElement.src = imageUrl;
+                imgElement.className = 'd-block w-100';
+                imgElement.alt = `Imagem do serviço: ${servico.name} ${index + 1}`;
+                carouselItem.appendChild(imgElement);
+                carouselImages.appendChild(carouselItem);
+            });
+
+            const average = calculateAverage(servico.ratings);
+            averageRatingElement.innerHTML = `&#9733; ${average} / 5`;
+        });
+
+        function calculateAverage(ratings) {
+            const total = ratings.reduce((acc, rating) => acc + rating, 0);
+            return (total / ratings.length).toFixed(1);
+        }
+    </script>
+
+<script>
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+    const logarLink = document.getElementById('logarLink');
+    const inscreverLink = document.getElementById('inscreverLink');
+    const contaIcon = document.getElementById('contaIcon');
+
+    if (usuarioLogado) {
+        logarLink.style.display = 'none';
+        inscreverLink.style.display = 'none';
+        contaIcon.style.display = 'block';
+    } else {
+        logarLink.style.display = 'block';
+        inscreverLink.style.display = 'block';
+        contaIcon.style.display = 'none';
+    }
+</script>
+
+</body>
+
+</html>

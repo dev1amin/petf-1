@@ -1,59 +1,50 @@
-document.addEventListener('DOMContentLoaded', async function() {
-    try {
-        const response = await fetch('https://api-render-pet.onrender.com/usuarios');
-        
-        if (!response.ok) { // Verifica se a resposta é válida
-            throw new Error(`HTTP error status: ${response.status}`);
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    const usuariosJSON = localStorage.getItem('usuarios');
+    const usuarios = usuariosJSON ? JSON.parse(usuariosJSON) : [];
 
-        const usuarios = await response.json();
-        const usuarioLogado = usuarios.find(u => u.usuario === 'admin'); // Substitua 'admin' pelo nome de usuário desejado
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
 
-        if (usuarioLogado) {
-            document.getElementById('nomeUsuarioInput').value = usuarioLogado.usuario;
-            
-            if (usuarioLogado.usuario === "admin") {
-                const adminPanelButton = document.createElement("button");
-                adminPanelButton.id = "adminPanelButton";
-                adminPanelButton.className = "btn btn-success";
-                adminPanelButton.textContent = "Painel de Admin";
-                adminPanelButton.onclick = function() {
-                    window.location.href = "../../admin/admin.html";
-                };
-                document.getElementById('formPerfil').appendChild(adminPanelButton);
-            }
+    if (usuarioLogado) {
+        const usuario = usuarios.find(u => u.usuario === usuarioLogado.usuario);
+
+        if (usuario) {
+            document.getElementById('nomeUsuarioInput').value = usuario.usuario;
+            document.getElementById('emailUsuarioInput').value = usuario.email;
         } else {
-            console.error('Usuário não encontrado na API.');
+            console.error('Usuário não encontrado.');
         }
-    } catch (error) {
-        console.error('Erro ao verificar o usuário:', error);
+    } else {
+        console.error('Nenhum usuário está logado.');
+        window.location.href = '../../index.html';
     }
 });
 
-document.getElementById('formPerfil').addEventListener('submit', async function(event) {
+document.getElementById('formPerfil').addEventListener('submit', function(event) {
     event.preventDefault();
     const nomeUsuario = document.getElementById('nomeUsuarioInput').value;
+    const emailUsuario = document.getElementById('emailUsuarioInput').value;
     const senhaUsuario = document.getElementById('senhaUsuario').value;
 
-    // Implementação da função updateUsuario ficaria aqui
-    // await updateUsuario(nomeUsuario, senhaUsuario);
+    const usuariosJSON = localStorage.getItem('usuarios');
+    const usuarios = usuariosJSON ? JSON.parse(usuariosJSON) : [];
 
-    window.location.href = '../../admin/admin.html'; // Ajuste o caminho conforme necessário
+    const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+    const usuarioIndex = usuarios.findIndex(u => u.usuario === usuarioLogado.usuario);
+    if (usuarioIndex !== -1) {
+        usuarios[usuarioIndex].usuario = nomeUsuario;
+        usuarios[usuarioIndex].email = emailUsuario;
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        alert('Dados do usuário atualizados!');
+    } else {
+        alert('Usuário não encontrado para atualização.');
+    }
 });
-
 
 document.getElementById('deslogarButton').addEventListener('click', function() {
     console.log('Logout realizado');
-    
-    // Limpa a flag de login no localStorage
+
     localStorage.removeItem('usuarioLogado');
-    
-    // Redireciona o usuário para a página inicial
-    window.location.href = '../../index.html';
 
-    localStorage.removeItem('usuarioNome');
-    atualizarLinks(); // Atualiza os links após o logout
-
-    localStorage.removeItem('loggedIn');
     window.location.href = '../../index.html';
 });

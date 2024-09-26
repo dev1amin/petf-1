@@ -9,60 +9,67 @@
     <link href="../avaliações/style.css" rel="stylesheet">
     <style>
       .product-image-container {
-          border: 2px solid #d6660a; /* Cor do quadro */
-          padding: 10px; /* Espaçamento interno */
-          border-radius: 10px; /* Cantos arredondados */
-          margin-left: 30px; /* Margem à esquerda */
-          max-width: 80%; /* Largura máxima do quadro */
-          display: flex; /* Usar flexbox para centralizar a imagem */
-          justify-content: center; /* Centralizar horizontalmente */
-          margin-top: 20px; /* Espaçamento acima do quadro */
+          border: 2px solid #d6660a;
+          padding: 10px;
+          border-radius: 10px;
+          margin-left: 30px;
+          max-width: 80%; 
+          display: flex;
+          justify-content: center; 
+          margin-top: 20px; 
       }
 
       .product-name {
-          margin-left: 30px; /* Margem à esquerda para o nome do produto */
-          font-size: 2.5rem; /* Aumentar o tamanho da fonte */
-          font-weight: bold; /* Deixar em negrito */
-          color: #d6660a; /* Cor do texto */
-          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+          margin-left: 30px;
+          font-size: 2.5rem; 
+          font-weight: bold;
+          color: #d6660a;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
       }
 
       .product-description {
-          margin-top: 75px; /* Espaço acima da descrição (subindo) */
-          margin-left: -80px; /* Margem à esquerda para a descrição */
-          font-size: 1.2rem; /* Tamanho da fonte */
-          line-height: 1.5; /* Aumentar o espaçamento entre linhas */
-          color: #333; /* Cor do texto */
-          background-color: #eeeaea; /* Fundo leve */
-          border-left: 4px solid #d6660a; /* Borda à esquerda */
-          padding: 10px; /* Espaçamento interno */
-          border-radius: 5px; /* Cantos arredondados */
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+          margin-top: 75px; 
+          margin-left: -80px; 
+          font-size: 1.2rem; 
+          line-height: 1.5; 
+          color: #333; 
+          background-color: #eeeaea; 
+          border-left: 4px solid #d6660a; 
+          padding: 10px; 
+          border-radius: 5px; 
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
 
       .product-price{
-          margin-top: 10px; /* Espaço acima da descrição (subindo) */
-          margin-left: -80px; /* Margem à esquerda para a descrição */
-          font-size: 1.2rem; /* Tamanho da fonte */
-          line-height: 1.5; /* Aumentar o espaçamento entre linhas */
-          color: #333; /* Cor do texto */
-          background-color: #eeeaea; /* Fundo leve */
-          border-left: 4px solid #d6660a; /* Borda à esquerda */
-          padding: 10px; /* Espaçamento interno */
-          border-radius: 5px; /* Cantos arredondados */
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+          margin-top: 10px;
+          margin-left: -80px;
+          font-size: 1.2rem;
+          line-height: 1.5;
+          color: #333;
+          background-color: #eeeaea;
+          border-left: 4px solid #d6660a; 
+          padding: 10px;
+          border-radius: 5px; 
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
       }
 
       .add-to-cart-button {
-          margin-top: 10px; /* Espaço acima do botão */
-          margin-left: -80px; /* Margem à esquerda para o botão */
+          margin-top: 10px;
+          margin-left: -80px;
       }
 
       .product-image {
-          max-width: 100%; /* Manter a imagem dentro do quadro */
-          max-height: 300px; /* Altura máxima da imagem */
-          object-fit: contain; /* Ajustar a imagem mantendo a proporção */
+          max-width: 100%;
+          max-height: 300px; 
+          object-fit: contain;
       }
+      .product-rating {
+        margin-left: -80px;
+        margin-top: 10px;
+        font-size: 1.5rem;
+        color: #d6660a;
+      }
+
   </style>
 </head>
 
@@ -110,6 +117,7 @@
             </div>
             <div class="col-md-6">
                 <p id="productDescription" class="product-description"></p>
+                <div id="averageRating" class="product-rating"></div>
                 <p id="productPrice" class="product-price"></p>
                 <div class="add-to-cart-button">
                     <button style="background-color: #E85D0C; color: white; font-weight: bold;" class="btn" id="addToCartButton">Ver no Site</button>
@@ -175,28 +183,32 @@
             const productImageElement = document.getElementById('productImage');
             const productDescriptionElement = document.getElementById('productDescription');
             const productPriceElement = document.getElementById('productPrice')
-            
+            const averageRatingElement = document.getElementById('averageRating');
+
             const productData = {
     "1": { 
         name: "Elfo", 
         description: "Transforme seu cachorro em um adorável elfo! Esta fantasia encantadora é feita de tecido macio e respirável, perfeita para passeios no parque ou festas de fantasia. Com detalhes brilhantes e um capuz pontudo, seu pet vai se sentir como uma verdadeira criatura mágica!", 
         image: "../imagens/produto1.png",
         price: "R$: 129,90", 
-        link: "http://linkdoProduto1.com" 
+        link: "http://linkdoProduto1.com",
+        ratings: [4, 5, 5, 5, 5] 
     },
     "2": { 
         name: "T-Rex", 
         description: "Deixe seu cão mais feroz do que nunca com a fantasia de T-rex! Esta fantasia divertida é feita de um material leve e confortável, ideal para brincadeiras. Com detalhes especiais e um pequeno rabo, seu cachorro vai ser a sensação da vizinhança!", 
         image: "../imagens/produto2.png",
         price: "R$: 119,90",  
-        link: "http://linkdoProduto2.com" 
+        link: "http://linkdoProduto2.com",
+        ratings: [4, 5, 3, 5, 5]  
     },
     "3": { 
         name: "Biscoito", 
         description: "O 'Biscoito' é a fantasia mais saborosa que seu cachorro pode usar! Com um design que imita um biscoito gigante, essa fantasia é perfeita para festivais de pets ou encontros com amigos. Feita de um material macio e acolhedor, garante conforto enquanto seu cão se destaca como a estrela do evento!", 
         image: "../imagens/produto3.png",
         price: "R$: 112,90",  
-        link: "http://linkdoProduto3.com" 
+        link: "http://linkdoProduto3.com",
+        ratings: [4, 1, 3, 5, 5]  
     }
 };
 
@@ -212,11 +224,34 @@
                 addToCartButton.onclick = function() {
                     window.location.href = product.link;
                 };
+                function calculateAverage(ratings) {
+                const total = ratings.reduce((acc, curr) => acc + curr, 0);
+                return (total / ratings.length).toFixed(1);
+                }
+                const average = calculateAverage(product.ratings);
+                averageRatingElement.innerHTML = `&#9733; ${average} / 5`;
             } else {
                 productDetailsContainer.innerHTML = "<p>Produto não encontrado.</p>";
             }
         });
     </script>
+  <script>
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+    const logarLink = document.getElementById('logarLink');
+    const inscreverLink = document.getElementById('inscreverLink');
+    const contaIcon = document.getElementById('contaIcon');
+
+    if (usuarioLogado) {
+        logarLink.style.display = 'none';
+        inscreverLink.style.display = 'none';
+        contaIcon.style.display = 'block';
+    } else {
+        logarLink.style.display = 'block';
+        inscreverLink.style.display = 'block';
+        contaIcon.style.display = 'none';
+    }
+</script>
 
 </body>
 
