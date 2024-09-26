@@ -19,21 +19,15 @@
       <nav class="d-flex flex-column flex-md-row justify-content-between w-100">
         <ul class="nav flex-column flex-md-row">
           <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroLocal/local.html">Locais</a>
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroProduto/produto.html">Produtos</a>
           </li>
           <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroProduto/produto.html">Produtos</a>
+            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroLocal/local.html">Lazer</a>
           </li>
           <li class="nav-item">
             <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroServicos/servicos.html">Serviços</a>
           <li class="nav-item">
           <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../cadastroEventos/evento.html">Eventos</a>
-          </li>
-          <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../posts/post.html">Posts</a>
-          </li>
-          <li class="nav-item">
-            <a id="corT" class="nav-link fw-bold fs-5 fs-md-2" href="../artigos/articles.html">Artigos</a>
           </li>
         </ul>
         <ul class="nav flex-column flex-md-row">
@@ -52,15 +46,36 @@
     <hr style="border-top: 2px solid black; width: 100%;margin-top: 0px;">
   </header>
 
-  <section id="Servicos" class="container-fluid">
-    <p id="corT2" class="ms-5 mt-3 text-start fs-1 fw-bold">Nossos produtos</p>
-    <div class="container mt-5" style="margin-top: 19px !important;">
-        <div class="product-cont row row-cols-1 row-cols-md-4 g-4" style="  
-        display: flex;
-        justify-content: center;
-        align-items: center;">
+  <section id="Produtos" class="container-fluid">
+    <p id="corT2" class="ms-5 mt-3 text-start fs-1 fw-bold">Conheça Nossos Produtos</p>
+    <div class="container mt-5" style="margin-top: 19px !important; display: flex; justify-content: left;">
+      <div class="product-cont row row-cols-1 row-cols-md-4 g-4" style="display: flex; justify-content: center; align-items: center;">
         
+        <div class="col productStyle">
+          <div class="card-body text-center">
+            <div id="imagem1"><img src="../imagens/produto1.png" class="img-fluid"></div>
+            <h5 id="nome1" class="mt-3" style="font-weight: 800; color: #E85D0C; margin-top: -15px!important; margin-bottom: -5px;">Elfo</h5>
+            <a href="javascript:void(0);" onclick="selecionarProduto('1');" id="corB21" class="btn mt-3 text-light fw-bold rounded-4" style="background-color: #E85D0C;">Veja Mais</a>
+          </div>
         </div>
+
+        <div class="col productStyle">
+          <div class="card-body text-center">
+            <div id="imagem2"><img src="../imagens/produto2.png" class="img-fluid"></div>
+            <h5 id="nome2" class="mt-3" style="font-weight: 800; color: #E85D0C; margin-top: -15px!important; margin-bottom: -5px;">T-Rex</h5>
+            <a href="javascript:void(0);" onclick="selecionarProduto('2');" id="corB22" class="btn mt-3 text-light fw-bold rounded-4" style="background-color: #E85D0C;">Veja Mais</a>
+          </div>
+        </div>
+
+        <div class="col productStyle">
+          <div class="card-body text-center">
+            <div id="imagem3"><img src="../imagens/produto3.png" class="img-fluid"></div>
+            <h5 id="nome3" class="mt-3" style="font-weight: 800; color: #E85D0C; margin-top: -15px!important; margin-bottom: -5px;">Biscoito</h5>
+            <a href="javascript:void(0);" onclick="selecionarProduto('3');" id="corB23" class="btn mt-3 text-light fw-bold rounded-4" style="background-color: #E85D0C;">Veja Mais</a>
+          </div>
+        </div>
+        
+      </div>
     </div>
   </section>
   <footer id="corB3" class="mt-5 p-5">
@@ -115,25 +130,16 @@
      </div>
     </div>
    </footer>
-    <script src="./produtos.js"></script>
-    <script src="./cadastro.js"></script>
+
     <script src="../login/signup/auth.js"></script>
+    <script src="cadastro.js"></script> 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-    
-        if (usuarioLogado) {
-          document.getElementById('logarLink').style.display = 'none';
-          document.getElementById('inscreverLink').style.display = 'none';
-          document.getElementById('contaIcon').style.display = 'inline-block';
-        } else {
-          document.getElementById('contaIcon').style.display = 'none';
-          document.getElementById('logarLink').style.display = 'inline-block';
-          document.getElementById('inscreverLink').style.display = 'inline-block';
-        }
-      });
+      function selecionarProduto(produtoId) {
+          localStorage.setItem('produtoId', produtoId);
+          window.location.href = '../cadastroProduto/detalhes.html';
+      }
     </script>
-    <script src="../login/signup/auth.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
   </body>
 </html>

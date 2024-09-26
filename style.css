@@ -1,14 +1,40 @@
 html{
   font-family:"Montserrat", sans-serif;
 }
-  
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#Pet, #Produtos, #Mapa {
+  width: 100%;
+}
+
+.main-container {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
 .main-container {
   height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Alinha o conteúdo horizontalmente no centro */
-  justify-content: center; /* Alinha verticalmente no centro */
+  align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 1200px;
   padding: 20px;
@@ -23,7 +49,7 @@ html{
 }
 
 .product-cont {
-  justify-content: center; /* Centraliza os produtos */
+  justify-content: center;
 }
 
 #cor{
